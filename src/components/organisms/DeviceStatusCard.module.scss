@@ -1,0 +1,54 @@
+.top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.icon {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container);
+  color: var(--primary);
+}
+
+.dot {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--surface-container-lowest);
+  display: flex;
+}
+
+.identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stage {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+}
+
+.warn {
+  color: var(--tertiary);
+}

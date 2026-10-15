@@ -1,0 +1,31 @@
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.reference {
+  stroke: var(--outline-variant);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.line {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.point {
+  fill: var(--primary);
+}
+
+.lost {
+  fill: var(--error);
+  font-size: 12px;
+  font-weight: 700;
+}

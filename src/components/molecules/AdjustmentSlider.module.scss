@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.icon {
+  color: var(--tertiary);
+}
+
+.value {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+}

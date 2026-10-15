@@ -1,0 +1,80 @@
+.panel {
+  padding: 0 0.25rem;
+
+  &[open] .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+  }
+}
+
+.summaryEnd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--on-surface-variant);
+}
+
+.accent {
+  color: var(--primary);
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+.zero {
+  border: 0;
+  background: none;
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 1rem;
+}
+
+.stamp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  background: var(--surface-container-low);
+}
+
+.stampHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

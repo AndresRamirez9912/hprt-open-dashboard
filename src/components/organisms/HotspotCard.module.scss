@@ -1,0 +1,65 @@
+.story {
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  background: #fff4e6;
+  font-size: 15px;
+  line-height: 1.5;
+
+  strong {
+    color: var(--tertiary);
+  }
+}
+
+.apHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  background: var(--surface-container-lowest);
+
+  small {
+    font-size: 11px;
+    color: var(--on-surface-variant);
+  }
+
+  strong {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.ssid {
+  color: var(--primary);
+}
+
+.muted {
+  color: var(--outline);
+  font-weight: 500;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  min-width: 0;
+}

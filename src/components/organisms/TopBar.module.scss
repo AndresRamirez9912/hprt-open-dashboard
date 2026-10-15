@@ -1,0 +1,31 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--header-height);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(251, 248, 255, 0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-container);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.offDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--outline);
+}

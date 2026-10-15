@@ -1,0 +1,15 @@
+.ok {
+  color: var(--secondary);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-sm);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}

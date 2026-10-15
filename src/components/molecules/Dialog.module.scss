@@ -1,0 +1,32 @@
+@use "../../styles/breakpoints" as *;
+
+.dialog {
+  width: 100%;
+  max-width: 24rem;
+  margin: auto auto 1rem;
+  padding: 0;
+  border: 0;
+  background: none;
+
+  &::backdrop {
+    background: rgba(46, 48, 59, 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+  @include tablet {
+    margin: auto;
+  }
+}
+
+.sheet {
+  margin: 0 1rem;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.raised {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-2);
+}
+
+.soft {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--surface-container-low);
+}
+
+.glow {
+  position: absolute;
+  top: -2.5rem;
+  right: -2.5rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(73, 62, 229, 0.12),
+    rgba(108, 248, 187, 0.15) 50%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+}

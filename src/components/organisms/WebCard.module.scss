@@ -1,0 +1,54 @@
+// Shared look of the desktop inspector cards (right column of the print lab).
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-1);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  h3 {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.accent {
+  color: var(--primary);
+}
+
+.checkTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+.link {
+  border: 0;
+  background: none;
+  color: var(--on-surface-variant);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary);
+  }
+}

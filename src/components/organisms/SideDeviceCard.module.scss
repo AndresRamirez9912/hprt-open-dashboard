@@ -1,0 +1,79 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  background: var(--surface-container-lowest);
+  box-shadow: 0 2px 8px -2px rgba(30, 32, 43, 0.05);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.connected {
+  color: var(--secondary);
+}
+
+.reconnecting {
+  color: var(--tertiary);
+}
+
+.disconnected {
+  color: var(--outline);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--on-surface-variant);
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}

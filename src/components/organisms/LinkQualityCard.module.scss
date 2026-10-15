@@ -1,0 +1,75 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+
+  b {
+    color: var(--on-surface);
+  }
+}
+
+.waiting {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+
+.numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 13px;
+}
+
+.big {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.peak {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  small {
+    font-weight: 700;
+  }
+}
+
+.bar {
+  position: relative;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    var(--secondary) 0 20%,
+    var(--tertiary) 20% 55%,
+    var(--error) 55% 100%
+  );
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surface-container-lowest);
+  border: 3px solid var(--on-surface);
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 11px;
+  color: var(--on-surface-variant);
+}
+
+.critical {
+  color: var(--error);
+  font-weight: 700;
+}

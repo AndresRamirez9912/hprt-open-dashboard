@@ -1,0 +1,24 @@
+.label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.box {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: inherit;
+}

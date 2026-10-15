@@ -1,0 +1,14 @@
+.button {
+  display: inline-flex;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--surface-container);
+    color: var(--primary);
+  }
+}

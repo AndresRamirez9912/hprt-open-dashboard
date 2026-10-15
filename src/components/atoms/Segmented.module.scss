@@ -1,0 +1,38 @@
+.group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-1);
+}
+
+.floating {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(25, 27, 38, 0.12);
+}
+
+.option {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.on {
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 1px 3px rgba(73, 62, 229, 0.3);
+}

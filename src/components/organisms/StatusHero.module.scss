@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  background: var(--surface-container-lowest);
+  box-shadow: var(--shadow-1);
+}
+
+.glow {
+  position: absolute;
+  right: -4rem;
+  bottom: -4rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(111, 251, 190, 0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+
+.icon {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container);
+  color: var(--primary);
+}
+
+.dot {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--surface-container-lowest);
+  display: flex;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  min-width: 0;
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    max-width: 26rem;
+    font-size: 14px;
+    color: var(--on-surface-variant);
+  }
+}
+
+.side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  background: var(--surface-container-low);
+
+  dt {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+  }
+
+  dd {
+    margin: 0.25rem 0 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.accent {
+  color: var(--primary);
+}
+
+.errors {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+// Narrow desktop windows: facts under the identity.
+@media (max-width: 1279px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .facts {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    width: 100%;
+  }
+}

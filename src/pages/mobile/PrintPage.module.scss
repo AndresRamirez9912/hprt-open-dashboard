@@ -1,0 +1,32 @@
+@use "../../styles/breakpoints" as *;
+
+// Phone: one column. Tablet: canvas 60 % / options 40 %.
+.page {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "left" "center" "right";
+
+  @include tablet {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-areas: "left left" "center right";
+    align-items: start;
+  }
+}
+
+.left {
+  grid-area: left;
+}
+
+.center {
+  grid-area: center;
+  min-width: 0;
+}
+
+.right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 0;
+}

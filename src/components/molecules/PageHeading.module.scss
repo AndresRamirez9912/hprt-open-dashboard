@@ -1,0 +1,32 @@
+.heading {
+  padding: var(--space-sm) 0;
+
+  p {
+    font-size: 13px;
+    color: var(--on-surface-variant);
+  }
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+.chip {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--secondary-fixed);
+  color: var(--on-secondary-fixed-variant);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
