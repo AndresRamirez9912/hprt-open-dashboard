@@ -1,37 +1,40 @@
 # PhotoPrint
 
 Web app para imprimir fotos en impresoras HPRT CP4x (CP4100…) desde el navegador. Implementa el
-diseño de Stitch **printer-app** y habla con la impresora a través del puente local de
-`free-photo` (o su reimplementación en Go, `free-photo/go-reference`).
+diseño de Stitch **printer-app**.
+
+El navegador no puede hablar directamente con la impresora (usa TCP/UDP crudo), así que la app
+necesita el bridge, que vive en su propio repositorio:
+**[hprt-open-bridge](https://github.com/AndresRamirez9912/hprt-open-bridge)**. La app le habla por
+`/api` (HTTP + SSE); cómo instalarlo y ejecutarlo está en su README.
 
 ## Arrancar
 
+Con el [bridge](https://github.com/AndresRamirez9912/hprt-open-bridge) ya en marcha (por defecto en
+`127.0.0.1:8787`):
+
 ```sh
 bun install
-# 1. el puente (en otra terminal), en ../free-photo
-npm run bridge                # escucha en 127.0.0.1:8787
-# 2. la app
 bun run dev                   # http://localhost:5173
 ```
 
-Si el puente está en otro puerto o en otra máquina: `BRIDGE_URL=http://host:puerto bun run dev`.
-Para probar sin impresora: `npm run sim` en `free-photo` y conecta a `127.0.0.1`.
+Si el bridge está en otro puerto o en otra máquina: `BRIDGE_URL=http://host:puerto bun run dev`.
 
 Bluetooth (Web Bluetooth) sólo funciona en Chrome/Edge, en `localhost` o HTTPS.
 
 ## Docker
 
 La imagen compila la app con Bun y la sirve con nginx, que además hace de proxy de `/api` hacia el
-puente (con el buffering desactivado para el stream de eventos SSE).
+bridge (con el buffering desactivado para el stream de eventos SSE).
 
 ```sh
 cp .env.example .env          # ajusta BRIDGE_URL (y PHOTOPRINT_PORT)
 docker compose up -d --build  # http://localhost:8080
 ```
 
-- `BRIDGE_URL` es la URL del puente **vista desde el contenedor** (sin `/` final). Si el puente corre
-  en la misma máquina, usa `http://host.docker.internal:8787` y arranca el puente escuchando fuera de
-  loopback: `BRIDGE_HOST=0.0.0.0 npm run bridge` (por defecto sólo escucha en `127.0.0.1`).
+- `BRIDGE_URL` es la URL del bridge **vista desde el contenedor** (sin `/` final). Si el bridge corre
+  en la misma máquina, usa `http://host.docker.internal:8787` y haz que el bridge escuche fuera de
+  loopback (por defecto sólo escucha en `127.0.0.1`; ver la configuración en su README).
 - Sin compose: `docker build -t photoprint . && docker run -p 8080:80 -e BRIDGE_URL=… --add-host host.docker.internal:host-gateway photoprint`.
 - Web Bluetooth sólo funciona en `localhost` o HTTPS: desde otro equipo de la red por `http://IP:8080`
   todo funciona salvo la sección Bluetooth (pon un proxy HTTPS delante si la necesitas).
@@ -40,7 +43,7 @@ docker compose up -d --build  # http://localhost:8080
 
 ```
 src/
-  api/          cliente HTTP y eventos SSE del puente (tipos de la API)
+  api/          cliente HTTP y eventos SSE del bridge (tipos de la API)
   hooks/        React Query: estado, eventos en vivo, acciones e impresión
   state/        estado del cliente con Context + useState (editor, Bluetooth)
   lib/          lógica pura: imagen, EXIF, BLE, logs, modelos de impresora
@@ -57,7 +60,7 @@ src/
   styles/       tokens del design system (Sass)
 ```
 
-- **Datos del servidor**: React Query. Lo que el puente empuja por SSE (estado, trabajo, logs) se
+- **Datos del servidor**: React Query. Lo que el bridge empuja por SSE (estado, trabajo, logs) se
   escribe en la caché de React Query, así que los componentes lo leen como cualquier query.
 - **Estado del cliente**: `PrintSettings` (foto y opciones del editor) y `Bluetooth` (sesión BLE),
   ambos con Context + `useState`. Sin `useMemo`/`useCallback`.
@@ -67,6 +70,6 @@ src/
 
 |                 |                                                |
 | --------------- | ---------------------------------------------- |
-| `bun run dev`   | servidor de desarrollo (proxy `/api` → puente) |
+| `bun run dev`   | servidor de desarrollo (proxy `/api` → bridge) |
 | `bun run build` | type-check y build de producción en `dist/`    |
 | `bun run lint`  | ESLint                                         |
